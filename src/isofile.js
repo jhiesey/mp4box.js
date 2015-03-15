@@ -2,6 +2,9 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
+var DataStream = require('./DataStream');
+var Log = require('./log');
+module.exports = ISOFile;
 var ISOFile = function (stream) {
 	/* DataStream object (extended with multiple underlying buffers) used to parse boxes */
 	this.stream = stream;

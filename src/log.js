@@ -2,6 +2,7 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
+module.exports = Log;
 var Log = (function (){
 		var start = new Date();
 		var LOG_LEVEL_ERROR 	= 4;

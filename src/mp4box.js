@@ -2,6 +2,11 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
+var BoxParser = require('./box');
+var DataStream = require('./DataStream');
+var ISOFile = require('./isofile');
+var Log = require('./log');
+module.exports = MP4Box;
 var MP4Box = function () {
 	/* DataStream object used to parse the boxes */
 	this.inputStream = null;

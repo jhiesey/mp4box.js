@@ -2,6 +2,10 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
+var DataStream = require('./DataStream');
+var MPEG4DescriptorParser = require('./descriptor');
+var Log = require('./log');
+module.exports = BoxParser;
 var BoxParser = {
 	ERR_NOT_ENOUGH_DATA : 0,
 	OK : 1,

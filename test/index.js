@@ -1,3 +1,9 @@
+var DataStream = require('./../src/DataStream');
+var MP4Box = require('./../src/mp4box');
+var TextMP4 = require('./../src/text-mp4');
+var VTTin4Parser = TextMP4.VTTin4Parser;
+var XMLSubtitlein4Parser = TextMP4.XMLSubtitlein4Parser;
+var Textin4Parser = TextMP4.Textin4Parser;
 /* Setting the level of logs (error, warning, info, debug) */
 Log.setLogLevel(Log.i);
 

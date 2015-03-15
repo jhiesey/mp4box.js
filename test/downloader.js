@@ -1,3 +1,4 @@
+var Log = require('./../src/log');
 function Downloader() {
 	this.isActive = false;
 	this.realtime = false;

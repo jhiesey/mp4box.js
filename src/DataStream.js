@@ -6,6 +6,7 @@
   @param {?Number} byteOffset Offset from arrayBuffer beginning for the DataStream.
   @param {?Boolean} endianness DataStream.BIG_ENDIAN or DataStream.LITTLE_ENDIAN (the default).
   */
+module.exports = DataStream;
 var DataStream = function(arrayBuffer, byteOffset, endianness) {
   this._byteOffset = byteOffset || 0;
   if (arrayBuffer instanceof ArrayBuffer) {

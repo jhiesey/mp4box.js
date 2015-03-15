@@ -1,3 +1,5 @@
+var Log = require('./../src/log');
+var MP4Box = require('./../src/mp4box');
 Log.setLogLevel(Log.i);
 
 function dragenter(e) {
