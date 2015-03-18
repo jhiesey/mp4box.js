@@ -6,7 +6,6 @@
   @param {?Number} byteOffset Offset from arrayBuffer beginning for the DataStream.
   @param {?Boolean} endianness DataStream.BIG_ENDIAN or DataStream.LITTLE_ENDIAN (the default).
   */
-module.exports = DataStream;
 var DataStream = function(arrayBuffer, byteOffset, endianness) {
   this._byteOffset = byteOffset || 0;
   if (arrayBuffer instanceof ArrayBuffer) {
@@ -22,6 +21,7 @@ var DataStream = function(arrayBuffer, byteOffset, endianness) {
   this.position = 0;
   this.endianness = endianness == null ? DataStream.LITTLE_ENDIAN : endianness;
 };
+module.exports = DataStream;
 DataStream.prototype = {};
 
 
@@ -1505,6 +1505,7 @@ DataStream.prototype.writeType = function(t, v, struct) {
    TODO: check range/support for 64-bits numbers in JavaScript
 */
 var MAX_SIZE = Math.pow(2, 32);
+exports.MAX_SIZE = MAX_SIZE;
 
 DataStream.prototype.readUint64 = function () {
 	return (this.readUint32()*MAX_SIZE)+this.readUint32();

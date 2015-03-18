@@ -2,9 +2,9 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
+var BoxParser = require('./box');
 var DataStream = require('./DataStream');
 var Log = require('./log');
-module.exports = ISOFile;
 var ISOFile = function (stream) {
 	/* DataStream object (extended with multiple underlying buffers) used to parse boxes */
 	this.stream = stream;
@@ -33,6 +33,7 @@ var ISOFile = function (stream) {
 	 */
 	this.nextParsePosition = 0;
 }
+module.exports = ISOFile;
 
 ISOFile.prototype.mergeNextBuffer = function() {
 	var next_buffer;

@@ -5,7 +5,6 @@
 var DataStream = require('./DataStream');
 var MPEG4DescriptorParser = require('./descriptor');
 var Log = require('./log');
-module.exports = BoxParser;
 var BoxParser = {
 	ERR_NOT_ENOUGH_DATA : 0,
 	OK : 1,
@@ -196,6 +195,7 @@ var BoxParser = {
 		return { code: BoxParser.OK, box: box, size: size };
 	},
 }
+module.exports = BoxParser;
 
 BoxParser.initialize();
 
@@ -1074,18 +1074,18 @@ BoxParser.subsBox.prototype.parse = function(stream) {
 
 BoxParser.Box.prototype.writeHeader = function(stream, msg) {
 	this.size += 8;
-	if (this.size > MAX_SIZE) {
+	if (this.size > DataStream.MAX_SIZE) {
 		this.size += 8;
 	}
 	Log.d("BoxWriter", "Writing box "+this.type+" of size: "+this.size+" at position "+stream.position+(msg || ""));
-	if (this.size > MAX_SIZE) {
+	if (this.size > DataStream.MAX_SIZE) {
 		stream.writeUint32(1);
 	} else {
 		this.sizePosition = stream.position;
 		stream.writeUint32(this.size);
 	}
 	stream.writeString(this.type, null, 4);
-	if (this.size > MAX_SIZE) {
+	if (this.size > DataStream.MAX_SIZE) {
 		stream.writeUint64(this.size);
 	} 
 }

@@ -2,7 +2,6 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
-module.exports = Log;
 var Log = (function (){
 		var start = new Date();
 		var LOG_LEVEL_ERROR 	= 4;
@@ -41,6 +40,7 @@ var Log = (function (){
 		};
 		return logObject;
 	})();
+module.exports = Log;
 	
 /* Helper function to print a duration value in the form H:MM:SS.MS */
 Log.getDurationString = function(duration, _timescale) {

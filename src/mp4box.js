@@ -6,7 +6,6 @@ var BoxParser = require('./box');
 var DataStream = require('./DataStream');
 var ISOFile = require('./isofile');
 var Log = require('./log');
-module.exports = MP4Box;
 var MP4Box = function () {
 	/* DataStream object used to parse the boxes */
 	this.inputStream = null;
@@ -39,6 +38,7 @@ var MP4Box = function () {
 	/* Number of the next 'moof' to generate when fragmenting */
 	this.nextMoofNumber = 0;
 }
+module.exports = MP4Box;
 
 MP4Box.prototype.setSegmentOptions = function(id, user, options) {
 	var trak = this.inputIsoFile.getTrackById(id);

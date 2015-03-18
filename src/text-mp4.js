@@ -4,9 +4,9 @@
  */
 var BoxParser = require('./box');
 var DataStream = require('./DataStream');
-exports.VTTin4Parser = VTTin4Parser;
 var VTTin4Parser = function() {	
 }
+exports.VTTin4Parser = VTTin4Parser;
 
 VTTin4Parser.prototype.parseSample = function(data) {
 	var cues, cue;
@@ -21,9 +21,9 @@ VTTin4Parser.prototype.parseSample = function(data) {
 	return cues;
 }
 
-exports.XMLSubtitlein4Parser = XMLSubtitlein4Parser;
 var XMLSubtitlein4Parser = function() {	
 }
+exports.XMLSubtitlein4Parser = XMLSubtitlein4Parser;
 
 XMLSubtitlein4Parser.prototype.parseSample = function(sample) {
 	var res = {};	
@@ -43,9 +43,9 @@ XMLSubtitlein4Parser.prototype.parseSample = function(sample) {
 	return res;
 }
 
-exports.Textin4Parser = Textin4Parser;
 var Textin4Parser = function() {	
 }
+exports.Textin4Parser = Textin4Parser;
 
 Textin4Parser.prototype.parseSample = function(sample) {
 	var textString;

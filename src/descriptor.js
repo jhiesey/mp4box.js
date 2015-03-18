@@ -2,7 +2,6 @@
  * Copyright (c) 2012-2013. Telecom ParisTech/TSI/MM/GPAC Cyril Concolato
  * License: BSD-3-Clause (see LICENSE file)
  */
-module.exports = MPEG4DescriptorParser;
 var Log = require('./log');
 var MPEG4DescriptorParser = function () {
 	var ES_DescrTag 			= 0x03;
@@ -151,3 +150,4 @@ var MPEG4DescriptorParser = function () {
 	
 	return this;
 }
+module.exports = MPEG4DescriptorParser;
