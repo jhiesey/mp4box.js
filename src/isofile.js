@@ -476,9 +476,6 @@ ISOFile.prototype.buildSampleLists = function() {
 			if (ctts) {
 				if (j > last_sample_in_ctts_run) {
 					ctts_run_index++;
-					if (last_sample_in_ctts_run < 0) {
-						last_sample_in_ctts_run = 0;
-					}
 					last_sample_in_ctts_run += ctts.sample_counts[ctts_run_index];				
 				}
 				sample.cts = trak.samples[j].dts + ctts.sample_offsets[ctts_run_index];
