@@ -378,6 +378,8 @@ ISOFile.prototype.buildSampleLists = function() {
 	var trak, stco, stsc, stsz, stts, ctts, stss, stsd, subs;
 	var chunk_run_index, chunk_index, last_chunk_in_run, offset_in_chunk, last_sample_in_chunk;
 	var last_sample_in_stts_run, stts_run_index, last_sample_in_ctts_run, ctts_run_index, last_stss_index, last_subs_index;
+	// TODO: this is a hack!
+	this.originalMvex = this.moov.mvex;
 	for (i = 0; i < this.moov.traks.length; i++) {
 		trak = this.moov.traks[i];
 		trak.samples = [];
@@ -638,9 +640,10 @@ ISOFile.prototype.getCodecs = function() {
 /* Helper function */
 ISOFile.prototype.getTrexById = function(id) {	
 	var i;
-	if (!this.moov || !this.moov.mvex) return null;
-	for (i = 0; i < this.moov.mvex.trexs.length; i++) {
-		var trex = this.moov.mvex.trexs[i];
+	// TODO: this is a hacky fix for fragmented files not working
+	if (!this.originalMvex) return null;
+	for (i = 0; i < this.originalMvex.trexs.length; i++) {
+		var trex = this.originalMvex.trexs[i];
 		if (trex.track_id == id) return trex;
 	}
 	return null;
