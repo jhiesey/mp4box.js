@@ -1264,8 +1264,8 @@ BoxParser.VisualSampleEntry.prototype.write = function(stream) {
 	stream.writeUint32(0);
 	stream.writeUint32(0);
 	stream.writeUint32(0);
-	stream.writeUint16(this.width);
-	stream.writeUint16(this.height);
+	stream.writeUint16(this.width - this.width % 2);
+	stream.writeUint16(this.height - this.height % 2);
 	stream.writeUint32(this.horizresolution);
 	stream.writeUint32(this.vertresolution);
 	stream.writeUint32(0);
