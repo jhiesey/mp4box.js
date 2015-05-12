@@ -102,6 +102,20 @@ MP4Box.prototype.unsetExtractionOptions = function(id) {
 	}
 }
 
+// key:
+// depended_on: 1
+// has_redundancy: 2
+// depends_on: 2
+// is_leading: 2
+// 0a600000
+
+// regular:
+// depended_on: 1
+// has_redundancy: 2
+// depends_on: 1
+// is_leading: 2
+// 09610000
+
 MP4Box.prototype.createSingleSampleMoof = function(sample) {
 	var moof = new BoxParser.moofBox();
 	var mfhd = new BoxParser.mfhdBox();
@@ -131,7 +145,7 @@ MP4Box.prototype.createSingleSampleMoof = function(sample) {
 	trun.sample_size = [];
 	trun.sample_size[0] = sample.size;
 	trun.sample_flags = [];
-	trun.sample_flags[0] = 0;
+	trun.sample_flags[0] = 0; //= sample.is_rap ? 0x0a600000 : 0x09610000; //sample.is_rap ? 0 : (1<<16);
 	trun.sample_composition_time_offset = [];
 	trun.sample_composition_time_offset[0] = sample.cts - sample.dts;
 	return moof;

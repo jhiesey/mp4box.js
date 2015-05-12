@@ -156,10 +156,11 @@ var BoxParser = {
 		var type = stream.readString(4);
 		Log.d("BoxParser", "Found box of type "+type+" and size "+size+" at position "+start+" in the current buffer ("+(stream.buffer.fileStart+start)+" in the file)");
 		hdr_size = 8;
-		if (type == "uuid") {
-			uuid = stream.readString(16);
-			hdr_size += 16;
-		}
+		// TODO: fix this properly. For now, consider the uuid as part of the body and not the header, which will cause the box to be written back out correctly
+		// if (type == "uuid") {
+		// 	uuid = stream.readString(16);
+		// 	hdr_size += 16;
+		// }
 		if (size == 1) {
 			if (stream.byteLength - stream.position < 8) {
 				stream.seek(start);
