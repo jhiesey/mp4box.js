@@ -343,7 +343,7 @@ ISOFile.prototype.writeInitializationSegment = function(outstream) {
 /* Resets all sample tables */
 ISOFile.prototype.resetTables = function () {
 	var i;
-	var trak, stco, stsc, stsz, stts, ctts, stss;
+	var trak, stco, stsc, stsz, stts, ctts, stss, sdtp;
 	this.initial_duration = this.moov.mvhd.duration;
 	this.moov.mvhd.duration = 0;
 	for (i = 0; i < this.moov.traks.length; i++) {
@@ -367,7 +367,11 @@ ISOFile.prototype.resetTables = function () {
 			ctts.sample_offsets = [];
 		}
 		stss = trak.mdia.minf.stbl.stss;
-		var k = trak.mdia.minf.stbl.boxes.indexOf(stss);
+		if (stss) {
+			stss.sample_numbers = new Uint32Array(0);
+		}
+		sdtp = trak.mdia.minf.stbl.sdtp;
+		var k = trak.mdia.minf.stbl.boxes.indexOf(sdtp);
 		if (k != -1) trak.mdia.minf.stbl.boxes[k] = null;
 	}
 }
