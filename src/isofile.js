@@ -139,6 +139,16 @@ ISOFile.prototype.parse = function() {
 						if (this.mdats.length === 0) {
 							this.isProgressive = true;
 						}
+					} else if (ret.type === 'free') {
+						found = this.reposition(false, this.stream.buffer.fileStart + this.stream.position + ret.size);
+						if (found) {
+							/* found the end of the box */
+							/* let's see if we can parse more in this buffer */
+							continue;
+						} else {
+							this.nextParsePosition = this.stream.buffer.fileStart + this.stream.position + ret.size;
+							return;
+						}
 					}
 					/* either it's not an mdat box (and we need to parse it, we cannot skip it)
 					   (TODO: we could skip 'free' boxes ...)
