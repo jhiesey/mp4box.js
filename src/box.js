@@ -193,6 +193,7 @@ var BoxParser = {
 		box.start = start;
 		box.fileStart = start + stream.buffer.fileStart;
 		box.parse(stream);
+		stream.seek(start + size);
 		return { code: BoxParser.OK, box: box, size: size };
 	},
 }
