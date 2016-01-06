@@ -1,5 +1,5 @@
 {
-  "name": "mp4box",
+  "name": "videostream-mp4box",
   "version": "0.1.0",
   "description": "JavaScript version of GPAC's MP4Box tool",
   "keywords": [
@@ -7,14 +7,14 @@
     "MSE",
     "streaming"
   ],
-  "homepage": "https://github.com/gpac/mp4box.js",
+  "homepage": "https://github.com/jhiesey/mp4box.js",
   "main": "src/mp4box.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gpac/mp4box.js.git"
+    "url": "https://github.com/jhiesey/mp4box.js.git"
   },
   "bugs": {
-    "url": "https://github.com/gpac/mp4box.js/issues"
+    "url": "https://github.com/jhiesey/mp4box.js/issues"
   },
   "author": {
     "name": "Cyril Concolato",
@@ -24,7 +24,7 @@
   "licenses": [
     {
       "type": "BSD-3-Clause",
-      "url": "https://github.com/gpac/mp4box.js/blob/master/LICENSE"
+      "url": "https://github.com/jhiesey/mp4box.js/blob/master/LICENSE"
     }
   ],
   "devDependencies": {
